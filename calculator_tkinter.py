@@ -13,6 +13,58 @@ def myClick(number):
     current = masukin.get()
     masukin.delete(0, tkinter.END)
     masukin.insert(0, str(current) + str(number))
+    
+    def button_clear():
+    masukin.delete(0, tkinter.END)
+
+def button_add():
+    first_number = masukin.get()
+    global f_num2
+    global kali
+    kali = "add"
+    f_num2 = int(first_number)
+    masukin.delete(0, tkinter.END)
+    
+    
+def button_sum():
+    jumlah = masukin.get()
+    masukin.delete(0, tkinter.END)
+    
+    if kali == "add" :
+        masukin.insert(0, int(f_num2) + int(jumlah))
+    if kali == "mult" :
+        masukin.insert(0, int(f_num2) * int(jumlah))
+    if kali == "div" :
+        masukin.insert(0, int(f_num2) / int(jumlah))
+    if kali == "subs" :
+        masukin.insert(0, int(f_num2) - int(jumlah))
+        
+    
+    
+
+def button_multiply():
+    first_number2 = masukin.get()
+    global f_num2
+    global kali
+    kali = "mult"
+    f_num2 = int(first_number2)
+    masukin.delete(0, tkinter.END)
+
+def button_divide():
+    first_number2 = masukin.get()
+    global f_num2
+    global kali
+    kali = "div"
+    f_num2 = int(first_number2)
+    masukin.delete(0, tkinter.END)
+
+def button_substract():
+    first_number2 = masukin.get()
+    global f_num2
+    global kali
+    kali = "subs"
+    f_num2 = int(first_number2)
+    masukin.delete(0, tkinter.END)
 
 mybutton1 = tkinter.Button(window, text = "1"
                           , fg="Blue", bg="Yellow", padx= 37, pady= 10, command= lambda: myClick(1))
@@ -55,5 +107,16 @@ mybuttonSum.grid(row=1, column=3)
 mybuttonClear = tkinter.Button(window, text = "Clear", command=lambda: myClick(1)
                           , fg="Blue", bg="Yellow", padx= 173, pady= 10)
 mybuttonClear.grid(row=4, column=0, columnspan=4)
+mybuttonMultiply = tkinter.Button(window, text = "x", command=lambda: button_multiply()
+                          , fg="Blue", bg="Yellow", padx= 36, pady= 10)
+mybuttonMultiply.grid(row=4, column=0)
+
+mybuttonDivide = tkinter.Button(window, text = "/", command=lambda: button_divide()
+                          , fg="Blue", bg="Yellow", padx= 37, pady= 10)
+mybuttonDivide.grid(row=4, column=1)
+
+mybuttonSubstract = tkinter.Button(window, text = "-", command=lambda: button_substract()
+                          , fg="Blue", bg="Yellow", padx= 37, pady= 10)
+mybuttonSubstract.grid(row=1, column=3)
 
 window.mainloop()
